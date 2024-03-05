@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="0.402" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Run with tag" name="Add profile scenario" time="0.052">
+<system-out><![CDATA[
+Given the user is on the login page.........................................passed
+When the user enter the valid user name and password........................passed
+And the user click on the login button......................................passed
+Then the user click on the My info sub menu.................................passed
+When the user enters the first name.........................................passed
+When the user clicks the gender radio button................................passed
+And the user clicks on the save button......................................passed
+]]></system-out>
+</testcase>
+</testsuite>
