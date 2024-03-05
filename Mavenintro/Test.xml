@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="testC">
+<listeners>
+<listener class-name ="Logintc.Trans">
+</listener>
+</listeners>
+<test name = "testR">
+<classes>
+<class name = "Logintc.TestC">
+</class>
+</classes>
+</test>
+</suite>
