@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="32.657" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="To verify the CEO" name="validate the CEO" time="32.356">
+<system-out><![CDATA[
+Given the user successfully logged in to the application....................passed
+When the user clicks on the directory sub menu..............................passed
+And the user select the job title as "CEO"..................................passed
+And the user clicks on the search button....................................passed
+Then the user can view the record found.....................................passed
+]]></system-out>
+</testcase>
+</testsuite>
