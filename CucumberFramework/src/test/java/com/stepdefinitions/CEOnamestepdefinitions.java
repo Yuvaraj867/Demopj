@@ -8,6 +8,7 @@ import com.lao.pageobjects.Homepage;
 import com.lao.pageobjects.Login_page;
 
 import Constants.Constatine;
+import Utiliss.CommonUtilis;
 import WEBDRIVER_Manager.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -17,43 +18,67 @@ import io.cucumber.java.en.When;
 public class CEOnamestepdefinitions {
 	static Logger logger =Logger.getLogger(Common_Step_definition.class);
 	
-	
 	@Given("the user successfully logged in to the application")
 	public void the_user_successfully_logged_in_to_the_application() throws InterruptedException {
+		
 		PropertyConfigurator.configure("File2.properties");
+		try {
 		
 		DriverManager.getDriver().get(Constatine.Appurl);
 		
 		Thread.sleep(3000);
-		Login_page.Username.sendKeys(Constatine.USERNAME);
-	    Login_page.Password.sendKeys(Constatine.PASSWORD);
-	    Login_page.Submit.click();
+		Login_page.getInstance().enterusername(Constatine.USERNAME);
+		Login_page.getInstance().enterpassword(Constatine.PASSWORD);
+		Login_page.getInstance().entersubmit();
 	    
-	    logger.info("successfully logged in to the page ");
+	    logger.info("successfully logged in to the page ");}
+	    catch(Exception e) {
+	    	logger.error(e);
+	    	CommonUtilis.getCommonutilisinstance().takescreenshot();
+	    }
 	    
 	}
 
 	@And("the user clicks on the directory sub menu")
 	public void the_user_clicks_on_the_directory_sub_menu() throws InterruptedException {
+		
 		PropertyConfigurator.configure("File2.properties");
 		Thread.sleep(3000);
-		Homepage.Home.click();
+		try {
+		Homepage.getInst().enterdirectory();
 	    logger.info("Click on the directory menu ");
-	}
+	}catch(Exception e) {
+		logger.error(e);
+		CommonUtilis.getCommonutilisinstance().takescreenshot();
+	}}
 
 	@When("the user select the job title as {string}")
 	public void the_user_select_the_job_title_as(String string) throws InterruptedException {
+		
 		Thread.sleep(3000);
-		DirectoryPage.Jobtitle.click();
-		DirectoryPage.SelectJob.click();
+		try {
+		DirectoryPage.getInstance().clickjobtitle();
+		//DirectoryPage.getInstance().getSelectJob().click();
 	    System.out.println("the user select the job title as CEO");}
+		catch(Exception e) {
+			logger.error(e);
+			CommonUtilis.getCommonutilisinstance().takescreenshot();
+		}
+			
+		}
 
 	@When("the user clicks on the search button.")
 	public void the_user_clicks_on_the_search_button() {
+		try {
 		
-		DirectoryPage.Search.click();
+		DirectoryPage.getInstance().clicksearch();
 		System.out.println("the user clicks on the search button.");
 	    	}
+		catch(Exception e) {
+			logger.error(e);
+			CommonUtilis.getCommonutilisinstance().takescreenshot();
+			
+		}}
 
 	@Then("the user can view the record found")
 	public void the_user_can_view_the_record_found() {

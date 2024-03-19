@@ -5,13 +5,53 @@ import org.openqa.selenium.remote.internal.WebElementToJsonConverter;
 import org.openqa.selenium.support.FindBy;
 
 public class DirectoryPage {
+	
+	private static DirectoryPage instance;
+	
+	private DirectoryPage() {
+		
+	}
+	
+	
+	public static DirectoryPage getInstance() {
+		if(instance==null) {
+			instance = new DirectoryPage();
+		}
+		return instance;
+	}
+
+
 	@FindBy(xpath="//label[text()='Job Title']//following::div")
-	public static WebElement Jobtitle;
+	private  WebElement Jobtitle;
 	
 	@FindBy(xpath="//span[text()='Chief Executive Officer']")
-	public static WebElement SelectJob;
+	private  WebElement SelectJob;
 	
-	@FindBy(xpath="//button[text()=' Search ']")
-	public static WebElement Search;
+	@FindBy(xpath="//button[text()=' Search1 ']")
+	private  WebElement Search;
+
+//	public WebElement getJobtitle() {
+//		return Jobtitle;
+//	}
+	
+	public void clickjobtitle() {
+		Jobtitle.click();
+		SelectJob.click();
+		
+	}
+
+//	public WebElement getSelectJob() {
+//		return SelectJob;
+//	}
+
+//	public WebElement getSearch() {
+//		return Search;
+//	}
+	
+	public void clicksearch() {
+		Search.click();
+	}
+	
+	
 
 }

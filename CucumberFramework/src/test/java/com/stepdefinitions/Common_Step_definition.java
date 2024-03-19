@@ -19,14 +19,14 @@ public class Common_Step_definition {
 	
 	
 	static Logger logger =Logger.getLogger(Common_Step_definition.class);
-	CommonUtilis loadUtil = new CommonUtilis();
+	
 	@Before
 	public void beforeScenario() {
 		PropertyConfigurator.configure("File2.properties");
 		logger.info("Execute first for UTILIS");
 		try {
 			
-			loadUtil.loadProperties();
+			CommonUtilis.getCommonutilisinstance().loadProperties();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -39,7 +39,7 @@ public class Common_Step_definition {
 				DriverManager.Launchbrowser();
 			DriverManager.getDriver().manage().window().maximize();
 			
-			loadUtil.intelements();
+			CommonUtilis.getCommonutilisinstance().intelements();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
