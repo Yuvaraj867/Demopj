@@ -17,7 +17,7 @@ public class Homepage {
 	}
 	
 	
-	@FindBy(xpath="//span[text() = 'Directory']")
+	@FindBy(xpath="//span[text() = 'Directory1']")
 	private  WebElement Home;
 
 //	public WebElement getHome() {

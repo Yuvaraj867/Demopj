@@ -30,7 +30,8 @@ public class CEOnamestepdefinitions {
 	    logger.info("successfully logged in to the page ");}
 	    catch(Exception e) {
 	    	logger.error(e);
-	    	CommonUtilis.getCommonutilisinstance().takescreenshot();
+	    	//CommonUtilis.getCommonutilisinstance().takescreenshot();
+	    	
 	    }
 	    
 	}
@@ -45,7 +46,7 @@ public class CEOnamestepdefinitions {
 	    logger.info("Click on the directory menu ");
 	}catch(Exception e) {
 		logger.error(e);
-		CommonUtilis.getCommonutilisinstance().takescreenshot();
+		//CommonUtilis.getCommonutilisinstance().takescreenshot();
 		Assert.fail(e.getMessage());
 	}}
 
@@ -59,7 +60,7 @@ public class CEOnamestepdefinitions {
 	    System.out.println("the user select the job title as CEO");}
 		catch(Exception e) {
 			logger.error(e);
-			CommonUtilis.getCommonutilisinstance().takescreenshot();
+			//CommonUtilis.getCommonutilisinstance().takescreenshot();
 		}
 			
 		}
@@ -73,7 +74,7 @@ public class CEOnamestepdefinitions {
 	    	}
 		catch(Exception e) {
 			logger.error(e);
-			CommonUtilis.getCommonutilisinstance().takescreenshot();
+			//CommonUtilis.getCommonutilisinstance().takescreenshot();
 			
 		}}
 

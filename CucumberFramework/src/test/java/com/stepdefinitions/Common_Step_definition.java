@@ -4,6 +4,8 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -14,7 +16,9 @@ import com.lao.pageobjects.Login_page;
 import Constants.Constatine;
 import Utiliss.CommonUtilis;
 import WEBDRIVER_Manager.DriverManager;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 
 
 public class Common_Step_definition {
@@ -62,10 +66,22 @@ DriverManager.getDriver().get(Constatine.Appurl);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}}
+		
+		
+	
+	
+	@AfterStep
+	public void attachScreenshot(Scenario scenario) {
+		if (scenario.isFailed()) {
+			
+		byte[] screenshotTaken=	((TakesScreenshot)DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
+		scenario.attach(screenshotTaken, "image/png", "errorscreen");
 		}
 		
-		
 	}
+	
+
 
 
 
