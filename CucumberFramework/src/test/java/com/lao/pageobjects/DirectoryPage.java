@@ -27,14 +27,15 @@ public class DirectoryPage {
 	@FindBy(xpath="//span[text()='Chief Executive Officer']")
 	private  WebElement SelectJob;
 	
-	@FindBy(xpath="//button[text()=' Search1 ']")
+	@FindBy(xpath="//button[text()=' Search ']")
 	private  WebElement Search;
 
 //	public WebElement getJobtitle() {
 //		return Jobtitle;
 //	}
 	
-	public void clickjobtitle() {
+	public void clickjobtitle() throws InterruptedException {
+		Thread.sleep(3000);
 		Jobtitle.click();
 		SelectJob.click();
 		

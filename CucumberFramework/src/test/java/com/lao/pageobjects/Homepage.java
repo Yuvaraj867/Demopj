@@ -24,7 +24,8 @@ public class Homepage {
 //		return Home;
 //	}
 	
-	public void enterdirectory() {
+	public void enterdirectory() throws InterruptedException {
+		Thread.sleep(3000);
 		Home.click();
 	}
 

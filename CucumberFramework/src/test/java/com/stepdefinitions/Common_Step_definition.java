@@ -9,6 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.GeckoDriverInfo;
 
+import com.lao.pageobjects.Login_page;
+
+import Constants.Constatine;
 import Utiliss.CommonUtilis;
 import WEBDRIVER_Manager.DriverManager;
 import io.cucumber.java.Before;
@@ -40,8 +43,25 @@ public class Common_Step_definition {
 			DriverManager.getDriver().manage().window().maximize();
 			
 			CommonUtilis.getCommonutilisinstance().intelements();
+			login();
 		} catch (Exception e) {
 			// TODO: handle exception
+		}
+		
+		
+	}
+
+	private void login()  {
+DriverManager.getDriver().get(Constatine.Appurl);
+		
+		try {
+			Thread.sleep(3000);
+			Login_page.getInstance().enterusername(Constatine.USERNAME);
+			Login_page.getInstance().enterpassword(Constatine.PASSWORD);
+			Login_page.getInstance().entersubmit();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		

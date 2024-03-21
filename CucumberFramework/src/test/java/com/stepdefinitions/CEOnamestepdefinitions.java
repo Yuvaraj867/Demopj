@@ -2,6 +2,7 @@ package com.stepdefinitions;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.junit.Assert;
 
 import com.lao.pageobjects.DirectoryPage;
 import com.lao.pageobjects.Homepage;
@@ -24,12 +25,7 @@ public class CEOnamestepdefinitions {
 		PropertyConfigurator.configure("File2.properties");
 		try {
 		
-		DriverManager.getDriver().get(Constatine.Appurl);
 		
-		Thread.sleep(3000);
-		Login_page.getInstance().enterusername(Constatine.USERNAME);
-		Login_page.getInstance().enterpassword(Constatine.PASSWORD);
-		Login_page.getInstance().entersubmit();
 	    
 	    logger.info("successfully logged in to the page ");}
 	    catch(Exception e) {
@@ -40,22 +36,23 @@ public class CEOnamestepdefinitions {
 	}
 
 	@And("the user clicks on the directory sub menu")
-	public void the_user_clicks_on_the_directory_sub_menu() throws InterruptedException {
+	public void the_user_clicks_on_the_directory_sub_menu()  {
 		
 		PropertyConfigurator.configure("File2.properties");
-		Thread.sleep(3000);
+		
 		try {
 		Homepage.getInst().enterdirectory();
 	    logger.info("Click on the directory menu ");
 	}catch(Exception e) {
 		logger.error(e);
 		CommonUtilis.getCommonutilisinstance().takescreenshot();
+		Assert.fail(e.getMessage());
 	}}
 
-	@When("the user select the job title as {string}")
-	public void the_user_select_the_job_title_as(String string) throws InterruptedException {
+	@When("the user select the job title as {string} using {string}")
+	public void the_user_select_the_job_title_as_using(String Jobtitle, String howTo) throws InterruptedException {
 		
-		Thread.sleep(3000);
+
 		try {
 		DirectoryPage.getInstance().clickjobtitle();
 		//DirectoryPage.getInstance().getSelectJob().click();
