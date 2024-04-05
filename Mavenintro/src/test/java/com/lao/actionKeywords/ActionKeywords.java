@@ -1,52 +1,68 @@
 package com.lao.actionKeywords;
 
+import org.apache.bcel.generic.SWITCH;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import com.lao.Executioncore.Engine;
+import com.lao.Utilities.ExcelUtilities;
 
 public class ActionKeywords {
 	static WebDriver driver;
 	
 	public static void openbrowser() throws InterruptedException {
-		 driver = new ChromeDriver();
 		
-	}
+	
+switch (ExcelUtilities.DataColumnValue) {
+case "chrome":
+	driver = new ChromeDriver();
+	break;
+case "firefox":
+	driver = new FirefoxDriver();
+	break;
+	
+	default:
+		driver = new ChromeDriver();
+	
+}}
 	
 	public static void goTOURL() throws InterruptedException {
-		 driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		 driver.get(ExcelUtilities.DataColumnValue);
 	        driver.manage().window().maximize();
 	        Thread.sleep(3000);
 	}
 	
 	public static void enterUserName() {
-		WebElement userName = driver.findElement(By.xpath("//input[@placeholder='Username']"));
-		userName.sendKeys("Admin");
+		WebElement userName = driver.findElement(Engine.Locator);
+		userName.sendKeys(ExcelUtilities.DataColumnValue);
 	}
 	
 	public static void enterPassword() {
-		WebElement passWord = driver.findElement(By.xpath("//input[@placeholder='Password']"));
-		passWord.sendKeys("admin123");
+		WebElement passWord = driver.findElement(Engine.Locator);
+		passWord.sendKeys(ExcelUtilities.DataColumnValue);
 	}
 	public static void clickloginbutton() {
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		driver.findElement(Engine.Locator);
 	}
 	
 	public static void clickDirectory() throws InterruptedException  {
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//span[text() = 'Directory']")).click();
+		driver.findElement(Engine.Locator);
 	}
 	
 	public static void selectQALead() throws InterruptedException {
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//label[text()='Job Title']//following::div")).click();
+		driver.findElement(Engine.Locator);
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//span[text()='Automation Tester']")).click();
+		driver.findElement(Engine.Locator);
 		
 	}
 	
 	public static void clickSearch() {
-		driver.findElement(By.xpath("//button[text()=' Search ']")).click();
+		driver.findElement(Engine.Locator);
 		
 	}
 
