@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 
 import io.cucumber.junit.Cucumber;
 @RunWith(Cucumber.class)
-@io.cucumber.junit.CucumberOptions(features=  "@targrt/failedscenario.txt" , 
+@io.cucumber.junit.CucumberOptions(features=  "@target/failed_scenarios.txt" , 
 glue = {"com.stepdefinitions"},
 dryRun=false,
 monochrome=true,

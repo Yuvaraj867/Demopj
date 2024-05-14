@@ -1,8 +1,11 @@
 package com.stepdefinitions;
 
+import java.lang.instrument.ClassDefinition;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 
 import com.lao.pageobjects.DirectoryPage;
 import com.lao.pageobjects.Homepage;
@@ -16,9 +19,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+
 public class CEOnamestepdefinitions {
-	static Logger logger =Logger.getLogger(Common_Step_definition.class);
-	
+static Logger logger =Logger.getLogger(Common_Step_definition.class);
+	WebDriver driver;
 	@Given("the user successfully logged in to the application")
 	public void the_user_successfully_logged_in_to_the_application() throws InterruptedException {
 		
@@ -60,6 +64,7 @@ public class CEOnamestepdefinitions {
 	    System.out.println("the user select the job title as CEO");}
 		catch(Exception e) {
 			logger.error(e);
+			Assert.fail(e.getMessage());
 			//CommonUtilis.getCommonutilisinstance().takescreenshot();
 		}
 			
@@ -74,6 +79,7 @@ public class CEOnamestepdefinitions {
 	    	}
 		catch(Exception e) {
 			logger.error(e);
+			Assert.fail(e.getMessage());
 			//CommonUtilis.getCommonutilisinstance().takescreenshot();
 			
 		}}
@@ -81,9 +87,10 @@ public class CEOnamestepdefinitions {
 	@Then("the user can view the record found")
 	public void the_user_can_view_the_record_found() {
 	    System.out.println("the user can view the record found");
+	    
 	}
 
-
+	 
 
 
 }

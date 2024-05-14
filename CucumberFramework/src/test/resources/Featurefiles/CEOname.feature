@@ -1,5 +1,5 @@
 
-@validateCEo
+@validateCEO
 Feature: To verify the CEO 
 Scenario: validate the CEO 
 
